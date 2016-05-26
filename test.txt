@@ -1,0 +1,55 @@
+
+# Clear any earlier rules
+*NEW
+
+# Speed up parsing by assuming all space-delimited words are signs. (i.e. don't allow "Fred Bloggs" as a single sign)
+*OPTION PERMUTESIGNS OFF
+
+# Speed up parsing by lexically analysing all signs at the start. (i.e. don't allow interpretations like "NOUNPHRASE {ate} NOUNPHRASE")
+*OPTION PROPAGATESIGNS OFF
+
+# Shorten the display of interpretations by showing only the top-level rules. (e.g. "NP( {the} {cat} )" not "NP( DET( {the} ) NOUN( {cat} ) )")
+*OPTION FULLDISPLAY OFF
+
+*RULE DEFINITEARTICLE={the}
+*RULE NOUN={tone}
+*RULE VERB={rang}
+*RULE ADVERB={out}
+*RULE PREPOSITION={from}
+*RULE NOUN={tower}
+*RULE ADJECTIVE={electronic}
+*RULE NOUN={time}
+*RULE PREPOSITION={of}
+*RULE PROPERNOUN={Galileo}
+*RULE ARTICLE = DEFINITEARTICLE
+*RULE ARTICLE = INDEFINITEARTICLE
+*RULE NOUNP=NOUN+PREPPHRASE
+*RULE NOUNA=ADJECTIVE+NOUN
+*RULE NOUNN=NOUN+NOUN
+*RULE NOUN=NOUNP
+*RULE NOUN=NOUNA
+*RULE NOUN=NOUNN
+*RULE PROPERNOUN=NOUN
+*RULE NOUNPHRASE=NOUN
+*RULE NOUNPHRASE=NOUNPHRASEA
+*RULE NOUNPHRASEA=ARTICLE+NOUN
+*RULE VERBPHRASEP = VERBPHRASE+PREPPHRASE
+*RULE VERBPHRASE = VERB
+*RULE VERBPHRASE = VERBPHRASEP
+*RULE PREPPHRASE=PREPOSITION+NOUNPHRASE
+*RULE SENTENCE = NOUNPHRASE+VERBPHRASE
+
+# Some hints to reduce unnecessary parsing. Interpretations with zero (or low) hint values get eliminated (or parsed later).
+
+# I can't immediately think of when VP+VP would be valid:
+*HINT VERBPHRASE+VERBPHRASE=0.0
+*HINT ARTICLE+VERBPHRASE=0.0
+# etc...
+
+# Abort anything with a sentence embedded inside it, since the program is designed to be given only complete sentences.
+*HINT SENTENCE+*=0.0
+*HINT *+SENTENCE=0.0
+
+# Show current options to allow double-check
+*OPTIONS
+

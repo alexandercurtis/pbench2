@@ -1,0 +1,10 @@
+This scenario should also get NOUN( {cat} ) {dog} and {cat} NOUN( {dog} ):
+
+cat dog
+Initial interpretations:
+{CAT} {DOG}
+{CAT DOG}
+
+
+After 1 application of rules sentence has 1 new interpretation:
+NOUN( {CAT} ) NOUN( {DOG} )

@@ -1,0 +1,9 @@
+*RULE P=S
+*RULE S=S+{PLUS}+M
+*RULE S=M
+*RULE M=M+{TIMES}+T
+*RULE M=T
+*RULE T={NUMBER}
+number plus number times number
+*EXIT
+

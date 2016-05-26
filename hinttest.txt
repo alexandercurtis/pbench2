@@ -1,0 +1,31 @@
+*NEW
+*RULE ADJ={hard}
+*RULE ADV={hard}
+*RULE V={play}
+*RULE N={i}
+*RULE VP=V+ADV
+*RULE S=N+VP
+
+i play hard
+
+#Now try with a hint
+
+*HINT V+ADJ=0.0
+
+i play hard
+
+*NEW
+*RULE ADJ={hard}
+*RULE ADV={hard}
+*RULE V={play}
+*RULE N={i}
+*RULE VP=V+ADV
+*RULE S=N+VP
+
+i play hard
+
+#Now try with a hint
+
+*HINT ?+ADJ=0.0
+
+i play hard

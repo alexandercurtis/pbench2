@@ -1,0 +1,26 @@
+# From Jurafsky and Martin (2009) chapter 12
+
+*RULE NOUN -> {flight} | {breeze} | {trip} | {morning}
+*RULE VERB -> {is} | {prefer} | {like} | {need} | {want} | {fly}
+*RULE ADJECTIVE -> {cheapest} | {non-stop} | {first} | {latest} | {other} | {direct}
+*RULE PRONOUN -> {me} | {I} | {you} | {it}
+*RULE PROPERNOUN -> {Alaska} | {Baltimore} | {Los Angeles} | {Chicago} | {United} | {American}
+*RULE DETERMINER -> {the} | {a} | {an} | {this} | {these} | {that}
+*RULE PREPOSITION -> {from} | {to} | {on} | {near}
+*RULE CONJUNCTION -> {and} | {or} | {but}
+
+*RULE S -> NP + VP
+*RULE NP -> PRONOUN | PROPERNOUN | DETERMINER + NOMINAL
+*RULE NOMINAL -> NOMINAL + NOUN | NOUN
+*RULE VP -> VERB | VERB + NP | VERB + NP + PP | VERB + PP
+*RULE PP -> PREPOSITION + NP
+
+*RULE DET -> NP + {'s}
+
+*RULE NP->(DET)+(CARD)+(ORD)+(QUANT)+(AP)+NOMINAL
+*RULE NOMINAL->NOMINAL+PP
+*RULE NOMINAL->NOMINAL+GERUNDVP
+*RULE GERUNDVP->GERUNDVP+NP | GERUNDVP+PP | GERUNDVP| GERUNDVP+NP+PP
+*RULE GERUNDVP->{being}|{arriving}|{leaving}
+*RULE NOMINAL->NOMINAL+RELCLAUSE
+*RULE RELCLAUSE->{who}+VP | {that}+VP
